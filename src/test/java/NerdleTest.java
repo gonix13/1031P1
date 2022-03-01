@@ -13,6 +13,7 @@ class NerdleTest {
         nerdle = new Nerdle();
     }
 
+
     static Stream<Arguments> entradas(){
         Nerdle.SymbolHint[] res = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
                 Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
