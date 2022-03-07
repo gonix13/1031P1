@@ -2,7 +2,10 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
+
 import java.util.stream.Stream;
 
 class NerdleTest {
@@ -42,6 +45,6 @@ class NerdleTest {
     @ParameterizedTest
     @MethodSource("entradas")
     void getHints(String guess, String solution, boolean isMini, Nerdle.SymbolHint[] result) {
-        assertEquals(nerdle.getHints(guess,solution,isMini),result);
+        assertThat(nerdle.getHints(guess,solution,isMini),is(result));
     }
 }
