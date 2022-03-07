@@ -24,6 +24,9 @@ class NerdleTest {
         Nerdle.SymbolHint[] resMini = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
                 Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
                 Nerdle.SymbolHint.CORRECT};
+        Nerdle.SymbolHint[] resMisplaced = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT, Nerdle.SymbolHint.CORRECT,
+                Nerdle.SymbolHint.CORRECT, Nerdle.SymbolHint.MISPLACED, Nerdle.SymbolHint.USELESS, Nerdle.SymbolHint.CORRECT,
+                Nerdle.SymbolHint.MISPLACED, Nerdle.SymbolHint.USELESS};
         return Stream.of(
                 Arguments.of("11+11=22","11+11=22",false,resNotMini), //Correcto
                 Arguments.of("9+1=10","9+1=10",true,resMini), //Correcto
@@ -40,7 +43,8 @@ class NerdleTest {
                 Arguments.of(null,"11+11=22",false,null),  //Exception(guess is null)
                 Arguments.of("11+11=22",null,false,null),  //Exception(solution is null)
                 Arguments.of("11*11=22","11+11=22",false,null), //Exception(guess is mathematically incorrect)
-                Arguments.of("11+11=22","11*11=22",false,null)  //Exception(solution is mathematically incorrect)
+                Arguments.of("11+11=22","11*11=22",false,null), //Exception(solution is mathematically incorrect)
+                Arguments.of("11+10=21","11+21=32",false,resMisplaced)
 
         );
     }
