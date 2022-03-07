@@ -46,7 +46,7 @@ public class Nerdle {
              for(Integer i:noCorrectas){
                  if (solutionAux.contains(guess.charAt(i))) {
                      res[i]=SymbolHint.MISPLACED;
-                     solutionAux.remove(i.intValue());
+                     solutionAux.remove(Character.valueOf(guess.charAt(i)));
                  }else{
                      res[i]=SymbolHint.USELESS;
                  }
