@@ -15,7 +15,7 @@ public class Nerdle {
         // without parentheses or spaces AND
         // the value of ArithmeticExpression equals Result
         // Not yet implemented...
-        return true;
+        return false;
     }
     public SymbolHint[] getHints(String guess, String solution, boolean isMini) {
         // Not yet implemented...
@@ -30,20 +30,23 @@ public class Nerdle {
              SymbolHint[] res;
              if (isMini) res = new SymbolHint[6];
              else res = new SymbolHint[8];
-             ArrayList<String> SolutionAux=new ArrayList<String>(Arrays.asList(solution.split("")));
+             ArrayList<Character> solutionAux=new ArrayList<Character>();
+            for (char ch: solution.toCharArray()) {
+                solutionAux.add(ch);
+            }
             Set<Integer> noCorrectas=new HashSet<>();
              for(int i = res.length-1; i >= 0; i--){
                  if (guess.charAt(i) == solution.charAt(i)) {
                      res[i]=SymbolHint.CORRECT;
-                     SolutionAux.remove(i);
+                     solutionAux.remove(i);
                  }else{
                      noCorrectas.add(i);
                  }
              }
              for(Integer i:noCorrectas){
-                 if (SolutionAux.contains(guess.charAt(i))) {
+                 if (solutionAux.contains(guess.charAt(i))) {
                      res[i]=SymbolHint.MISPLACED;
-                     SolutionAux.remove(i);
+                     solutionAux.remove(i);
                  }else{
                      res[i]=SymbolHint.USELESS;
                  }
