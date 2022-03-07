@@ -13,7 +13,7 @@ class NerdleTest {
 
     @BeforeAll
     static void setUp() {
-        nerdle = new Nerdle();
+        nerdle = new NerdleStub();
     }
 
 
