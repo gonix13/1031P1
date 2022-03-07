@@ -1,6 +1,4 @@
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Nerdle {
     public static final int NORMAL_LENGTH = 8;
@@ -32,11 +30,22 @@ public class Nerdle {
              SymbolHint[] res;
              if (isMini) res = new SymbolHint[6];
              else res = new SymbolHint[8];
-             String solutionAux = new String(solution);
-             for(int i = 0; i < res.length; i++){
+             ArrayList<String> SolutionAux=new ArrayList<String>(Arrays.asList(solution.split("")));
+            Set<Integer> noCorrectas=new HashSet<>();
+             for(int i = res.length-1; i >= 0; i--){
                  if (guess.charAt(i) == solution.charAt(i)) {
-                     res[i] = SymbolHint.CORRECT;
-                    solutionAux.replaceFirst(String.valueOf(guess.charAt(i)),"");
+                     res[i]=SymbolHint.CORRECT;
+                     SolutionAux.remove(i);
+                 }else{
+                     noCorrectas.add(i);
+                 }
+             }
+             for(Integer i:noCorrectas){
+                 if (SolutionAux.contains(guess.charAt(i))) {
+                     res[i]=SymbolHint.MISPLACED;
+                     SolutionAux.remove(i);
+                 }else{
+                     res[i]=SymbolHint.USELESS;
                  }
              }
              return res;
