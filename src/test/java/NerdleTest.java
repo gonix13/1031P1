@@ -18,12 +18,15 @@ class NerdleTest {
 
 
     static Stream<Arguments> entradas(){
-        Nerdle.SymbolHint[] res = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
+        Nerdle.SymbolHint[] resNotMini = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
                 Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
                 Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT};
+        Nerdle.SymbolHint[] resMini = new Nerdle.SymbolHint[]{Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
+                Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,Nerdle.SymbolHint.CORRECT,
+                Nerdle.SymbolHint.CORRECT};
         return Stream.of(
-                Arguments.of("11+11=22","11+11=22",false,res), //Correcto
-                Arguments.of("9+1=10","9+1=10",true,res), //Correcto
+                Arguments.of("11+11=22","11+11=22",false,resNotMini), //Correcto
+                Arguments.of("9+1=10","9+1=10",true,resMini), //Correcto
                 Arguments.of("11+11=22","9+1=10",true,null), //Exception(guess to long)
                 Arguments.of("8+1=9","9+1=10",true,null), //Exception(guess to short)
                 Arguments.of("9+1=10","8+1=9",true,null), //Exception(solution to short)

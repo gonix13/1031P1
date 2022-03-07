@@ -23,7 +23,7 @@
     </dependencies>
 
     <properties>
-        <hamcrest.library>2.1</hamcrest.library>
+        <hamcrest.library>2.2</hamcrest.library>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
