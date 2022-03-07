@@ -14,12 +14,20 @@
             <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${hamcrest.library}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <properties>
+        <hamcrest.library>2.1</hamcrest.library>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
+
     </properties>
 
 </project>
